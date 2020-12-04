@@ -1,0 +1,58 @@
+primeiro add aluno/professor e por ultimo os projetos
+
+como add um aluno: URL: http://localhost:8080/api/v1/alunos/
+Ex ->
+{
+        
+        "matricula": "88886",
+        "nome": "Lais pedrosa",
+        "cpf": "666.598.598-90",
+        "curso": "Eng. da Computação",
+        "endereco": {
+            "rua": "Rua rio de janeiro",
+            "numero": "480",
+            "cep": "58.445-200",
+            "cidade": "Campina Grande",
+            "estado": "PB",
+            "pais": "BR"
+        }
+        
+    }
+
+como add um professor: URL: http://localhost:8080/api/v1/professores/
+
+Ex -> 
+{   
+        "nome": "Bruno de Araújo",
+        "matricula": 569,
+        "curso": "Ciência da Computação",
+        "endereco": {
+           "rua": "rua azul",
+            "numero": "400",
+            "cep": "58.244-000",
+            "cidade": "Queimadas",
+            "estado": "PB",
+            "pais": "BR"
+        }
+}
+
+
+como add um projeto: URL: http://localhost:8080/api/v1/projetos/
+ aluno e professor são passados na criação do projeto 
+Ex ->
+{   
+        "titulo": "projeto 10",
+        "areaDoProjeto": "Computação",
+        "resumo": "ia",
+        "professor": {
+            "id":1
+        },
+        "palavraChave1": "computação",
+        "palavraChave2": "ensino",
+        "palavraChave3": "ia",
+        "urlDocumento": "https://ia/projetos/uepb",
+        "aluno": {
+            "id": 5
+        }
+}
+
