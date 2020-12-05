@@ -11,11 +11,9 @@ import lombok.Data;
 
 @Data
 public class ProjetoDTO implements Serializable{
-		private static final long serialVersionUID = 1L;
-
+	private static final long serialVersionUID = 1L;
 
 	private Long id;
-	
 	
 	private String titulo;
 	private String areaDoProjeto;
@@ -26,7 +24,6 @@ public class ProjetoDTO implements Serializable{
 	private String palavraChave3;
 	private String urlDocumento;
 	private Aluno aluno;
-	
 	
 	public ProjetoDTO(Projeto c) {
 		this.id = c.getId();

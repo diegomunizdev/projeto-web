@@ -38,8 +38,6 @@ public class ProjetosController {
 		
 	}
 	
-	
-	
 	@PostMapping
 	public String cadastrarProjeto(@Validated @RequestBody Projeto projeto) {
 		Projeto c = service.cadastrar(projeto);
@@ -55,7 +53,7 @@ public class ProjetosController {
 	@DeleteMapping("/{id}")
 	public String removerProjeto(@PathVariable("id") Long id) {
 		service.remover(id);
-		return "Projeto removido com sucesso. ";
+		return "Projeto removido com sucesso.";
 	}
 	
 }

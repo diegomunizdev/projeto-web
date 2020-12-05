@@ -47,7 +47,6 @@ public class Projeto {
 	
 	@Column(name = "url_documento", length = 255)
 	private String urlDocumento;
-	
 
 	@ManyToOne
 	@JoinColumn(name = "aluno_id")
