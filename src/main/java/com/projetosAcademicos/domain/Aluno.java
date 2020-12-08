@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -43,17 +44,11 @@ public class Aluno {
 	@Column(name = "curso", length = 255)
 	private String curso;
 	
-	@JsonIgnore
-	@OneToMany(mappedBy = "aluno")
+	@JsonIgnore // usado para evitar referência ciclica
+	@ManyToMany(mappedBy = "alunos")
 	private List<Projeto> projetos = new ArrayList<>();
-	/*
-	 * @ManyToMany(cascade = CascadeType.ALL)
-	 * 
-	 * @JoinTable(name = "aluno_projeto", joinColumns = @JoinColumn(name =
-	 * "id_alu",referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name
-	 * = "id_proj", referencedColumnName = "id")) private List<Projeto> projetos =
-	 * new ArrayList<>();
-	 */
+	
+	
 		
 	@NotNull()
 	@OneToOne(cascade=CascadeType.ALL)

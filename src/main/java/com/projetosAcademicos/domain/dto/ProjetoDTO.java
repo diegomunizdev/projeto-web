@@ -3,6 +3,9 @@ package com.projetosAcademicos.domain.dto;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.projetosAcademicos.domain.Aluno;
 import com.projetosAcademicos.domain.Professor;
 import com.projetosAcademicos.domain.Projeto;
@@ -23,7 +26,7 @@ public class ProjetoDTO implements Serializable{
 	private String palavraChave2;
 	private String palavraChave3;
 	private String urlDocumento;
-	private Aluno aluno;
+	private List<Aluno> alunos = new ArrayList<>();
 	
 	public ProjetoDTO(Projeto c) {
 		this.id = c.getId();
@@ -35,6 +38,6 @@ public class ProjetoDTO implements Serializable{
 		this.palavraChave2 = c.getPalavraChave2();
 		this.palavraChave3 = c.getPalavraChave3();
 		this.urlDocumento = c.getUrlDocumento();
-		this.aluno = c.getAluno();
+		this.alunos = c.getAlunos();
 	}
 }

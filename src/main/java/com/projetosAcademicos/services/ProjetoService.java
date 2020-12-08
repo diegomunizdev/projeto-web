@@ -43,7 +43,7 @@ public class ProjetoService {
 			projetoBD.setPalavraChave2(projeto.getPalavraChave2());
 			projetoBD.setPalavraChave3(projeto.getPalavraChave3());
 			projetoBD.setUrlDocumento(projeto.getUrlDocumento());
-			projetoBD.setAluno(projeto.getAluno());
+			projetoBD.setAlunos(projeto.getAlunos());
 			
 			projetoRepository.save(projetoBD);
 			return projetoBD;

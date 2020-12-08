@@ -38,7 +38,7 @@ public class Professor {
 	@Column(name = "curso", length = 255)
 	private String curso;
 	
-	@JsonIgnore
+	@JsonIgnore // usado para evitar referência ciclica
 	@OneToMany(mappedBy = "professor")
 	private List<Projeto> projetos = new ArrayList<>();
 	
