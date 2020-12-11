@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,11 +29,13 @@ public class AlunosController {
 	private AlunoService service;
 	
 	@GetMapping
+	@Secured("ROLE_USER")
 	public ResponseEntity<List<AlunoDTO>> get() {
 		return ResponseEntity.ok(service.getAlunos());
 	}
 	
 	@GetMapping("/{id}")
+	@Secured("ROLE_USER")
 	public ResponseEntity<Aluno> get(@PathVariable("id") Long id) {
 		Optional<Aluno> aluno = service.getAlunoById(id);
 		return aluno.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
@@ -40,6 +43,7 @@ public class AlunosController {
 	}
 	
 	@GetMapping("/matricula/{matricula}")
+	@Secured("ROLE_USER")
 	public ResponseEntity<List<AlunoDTO>> getAlunos(@PathVariable("matricula") String matricula) {
 		List<AlunoDTO> listaAlunos = service.getAlunoByMatricula(matricula);
 		return listaAlunos.isEmpty() ? 
@@ -48,18 +52,21 @@ public class AlunosController {
 	}
 	
 	@PostMapping
+	@Secured("ROLE_ADMIN")
 	public String cadastrarAluno(@Validated @RequestBody Aluno aluno) {
 		Aluno c = service.cadastrar(aluno);
 		return "Aluno salvo com sucesso: " + c.getId();
 	}
 	
 	@PutMapping("/{id}")
+	@Secured("ROLE_ADMIN")
 	public String atualizarAluno(@Validated @PathVariable("id") Long id, @RequestBody Aluno aluno) {
 		Aluno c = service.atualizar(aluno, id);
 		return "Aluno atualizado com sucesso: " + c.getId();
 	}
 	
 	@DeleteMapping("/{id}")
+	@Secured("ROLE_ADMIN")
 	public String removerAluno(@PathVariable("id") Long id) {
 		service.remover(id);
 		return "Aluno removido com sucesso. ";

@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,11 +28,13 @@ public class ProjetosController {
 	private ProjetoService service;
 	
 	@GetMapping
+	@Secured("ROLE_USER")
 	public ResponseEntity<List<ProjetoDTO>> get() {
 		return ResponseEntity.ok(service.getProjetos());
 	}
 	
 	@GetMapping("/{id}")
+	@Secured("ROLE_USER")
 	public ResponseEntity<Projeto> get(@PathVariable("id") Long id) {
 		Optional<Projeto> projeto = service.getProjetoById(id);
 		return projeto.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
@@ -39,18 +42,21 @@ public class ProjetosController {
 	}
 	
 	@PostMapping
+	@Secured("ROLE_ADMIN")
 	public String cadastrarProjeto(@Validated @RequestBody Projeto projeto) {
 		Projeto c = service.cadastrar(projeto);
 		return "Projeto salvo com sucesso: " + c.getId();
 	}
 	
 	@PutMapping("/{id}")
+	@Secured("ROLE_ADMIN")
 	public String atualizarProjeto(@Validated @PathVariable("id") Long id, @RequestBody Projeto projeto) {
 		Projeto c = service.atualizar(projeto, id);
 		return "Projeto atualizado com sucesso: " + c.getId();
 	}
 	
 	@DeleteMapping("/{id}")
+	@Secured("ROLE_ADMIN")
 	public String removerProjeto(@PathVariable("id") Long id) {
 		service.remover(id);
 		return "Projeto removido com sucesso.";
