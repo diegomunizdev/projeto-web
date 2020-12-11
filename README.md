@@ -1,19 +1,41 @@
-# Getting Started
+# Projetos Acadêmicos desenvolvido para a disciplina de Programação Web
 
-### Reference Documentation
-For further reference, please consider the following sections:
+##### Alunos: Diego Muniz e Bruno Silva
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.3.5.RELEASE/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.3.5.RELEASE/maven-plugin/reference/html/#build-image)
-* [Spring Boot DevTools](https://docs.spring.io/spring-boot/docs/2.3.5.RELEASE/reference/htmlsingle/#using-boot-devtools)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/2.3.5.RELEASE/reference/htmlsingle/#boot-features-developing-web-applications)
+# Baixar o projeto
 
-### Guides
-The following guides illustrate how to use some features concretely:
+Escolha uma das opções abaixo e dê um `git clone`
 
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
+```
+https://github.com/diegomunizdev/projeto-web.git
+```
+
+ou
+
+```
+git@github.com:diegomunizdev/projeto-web.git
+```
+
+em seguide entre no diretório que você baixou o projeto e abra com o `Eclipse`.
+
+Ainda antes de rodar, crie um schema no `MySQL` com o nome `api_projetos_academicos`.
+
+# Rodar a aplicação
+
+Rode sua aplicação e no primeiro acesso na rota `http://localhost:8080` você receberá um alert para fazer o login e senha, como na imagem abaixo.
+
+![image](https://user-images.githubusercontent.com/26802818/101963734-30af9280-3bee-11eb-8a77-380c48a9cd9f.png)
+
+Você pode logar com o usuário `admin` e senha `admin`  que tem níveis de permissão de administrador e pode logar com `user`
+e senha `user` com permissões limitadas, como por exemplo, não poder criar um projeto.
+
+Depois disso acesse a rota `http://localhost:8080/swagger-ui.html` e veja todas as rotas e modelos da aplicação para as requisições.
 
 
+![image](https://user-images.githubusercontent.com/26802818/101964070-e0850000-3bee-11eb-92e7-317904ac50d5.png)
+
+Configure as autorizações como na imagem abaixo, sem essas informações você não receberá nem poderá enviar dados para o Banco de Dados.
+
+![image](https://user-images.githubusercontent.com/26802818/101964224-6dc85480-3bef-11eb-9451-d338378430ca.png)
+
+Seja feliz com as requisições!
