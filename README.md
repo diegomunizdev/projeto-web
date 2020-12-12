@@ -34,7 +34,7 @@ Depois disso acesse a rota `http://localhost:8080/swagger-ui.html` e veja todas 
 
 ![image](https://user-images.githubusercontent.com/26802818/101964070-e0850000-3bee-11eb-92e7-317904ac50d5.png)
 
-Configure as autorizações como na imagem abaixo, sem essas informações você não receberá nem poderá enviar dados para o Banco de Dados.
+No Postman configure as autorizações como na imagem abaixo, sem essas informações você não receberá nem poderá enviar dados para o Banco de Dados.
 
 ![image](https://user-images.githubusercontent.com/26802818/101964224-6dc85480-3bef-11eb-9451-d338378430ca.png)
 
